@@ -1,8 +1,7 @@
 import { useState } from "react";
 import profileImg from "@/assets/profile.jpg";
 import schoolImg from "@/assets/school.png";
-import sushmaImg from "@/assets/sushma.jpg";
-import { Gamepad2, Code, Smartphone, Palette, Bot, Sparkles, Layers, GraduationCap, Database, PenTool, Monitor, FileCode, Server, Leaf, FileJson, Coffee, Globe, Cpu, MapPin, ChevronDown, ChevronUp, Facebook, Linkedin, Ghost, MessageCircle, Briefcase, Music, Phone, Github } from "lucide-react";
+import { Gamepad2, Code, Smartphone, Palette, Bot, Database, PenTool, Monitor, FileCode, Server, Leaf, FileJson, Coffee, Globe, ChevronDown, ChevronUp, Facebook, Linkedin, Ghost, MessageCircle, Briefcase, Music, Phone, Github } from "lucide-react";
 
 const About = () => {
     const [isExpanded, setIsExpanded] = useState(false);
