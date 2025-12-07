@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&family=Life+Savers:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.cdnfonts.com/css/peachi");
+@import url("https://fonts.cdnfonts.com/css/ride-my-bike");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  scroll-behavior: smooth;
+  font-family: "Karla", Arial, sans-serif;
+}
+
+* {
+  cursor: none !important;
+}
+
+::selection {
+  cursor: none !important;
+}
+
+::-moz-selection {
+  cursor: none !important;
+}
+
+input,
+textarea,
+button,
+a,
+select,
+[role="button"] {
+  cursor: none !important;
+}
+
+/* Custom Font Utility Classes */
+.font-body {
+  font-family: "Karla", Arial, sans-serif;
+}
+
+.font-heading {
+  font-family: "Peachi", cursive;
+}
+
+.font-name {
+  font-family: "Life Savers", cursive;
+}
+
+.font-special {
+  font-family: "Ride My Bike", cursive;
+}
+
+.font-code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 48 100% 95%;
+    /* Light yellow background */
+    --foreground: 0 0% 10%;
+    /* Dark text */
+    --muted: 45 80% 85%;
+    /* Soft yellow muted tones */
+    --muted-foreground: 0 0% 30%;
+    /* Muted text */
+    --popover: 48 100% 96%;
+    --popover-foreground: 0 0% 10%;
+    --card: 50 100% 97%;
+    /* Light yellow card background */
+    --card-foreground: 0 0% 10%;
+    /* Dark card text */
+    --border: 45 60% 80%;
+    /* Light yellow borders */
+    --input: 48 80% 90%;
+    /* Light yellow input field background */
+    --primary: 45 100% 60%;
+    /* Yellow tones */
+    --primary-foreground: 0 0% 10%;
+    /* Dark text */
+    --secondary: 48 100% 70%;
+    /* Light yellow tones */
+    --secondary-foreground: 0 0% 10%;
+    /* Dark text */
+    --accent: 42 100% 50%;
+    /* Golden yellow */
+    --accent-foreground: 0 0% 10%;
+    /* Dark text */
+    --destructive: 0 85% 55%;
+    /* Red for warnings */
+    --destructive-foreground: 0 0% 100%;
+    /* White text */
+    --ring: 45 100% 60%;
+    /* Yellow ring for focus */
+    --chart-1: 45 100% 60%;
+    /* Chart color 1 */
+    --chart-2: 48 100% 70%;
+    /* Chart color 2 */
+    --chart-3: 42 100% 50%;
+    /* Chart color 3 */
+    --chart-4: 50 100% 75%;
+    /* Chart color 4 */
+    --chart-5: 40 100% 65%;
+    /* Chart color 5 */
+    --radius: 1.1rem;
+    /* Border radius */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground selection:bg-primary selection:text-primary-foreground;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(45 100% 60% / 0.6);
+  border-radius: 3px;
+}
+
+pre,
+code {
+  font-family: "Jetbrains Mono", monospace;
+}
+
+/* Infinite Scroll Animations */
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+/* Custom animations for enhanced sections */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* --- New Button Styles & Variables --- */
+
+@font-face {
+  font-display: block;
+  font-family: Mori;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://assets.codepen.io/16327/PPMori-Regular.woff) format("woff");
+}
+
+@font-face {
+  font-display: block;
+  font-family: Mori;
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://assets.codepen.io/16327/PPMori-SemiBold.woff) format("woff");
+}
+
+@font-face {
+  font-display: block;
+  font-family: Fraktion Mono;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://assets.codepen.io/16327/PPFraktionMono-Bold.woff) format("woff");
+}
+
+:root {
+  --color-shockingly-green: #0ae448;
+  --color-just-black: #0e100f;
+  --color-surface-white: #fffce1;
+  --color-pink: #fec5fb;
+  --color-shockingly-pink: #f100cb;
+  --color-orangey: #ff8709;
+  --color-lilac: #9d95ff;
+  --color-lt-green: #abff84;
+  --color-blue: #00bae2;
+  --color-grey: #191919;
+  --color-surface75: #bbbaa6;
+  --color-surface50: #7c7c6f;
+  --color-surface25: #42433d;
+
+  --dark: var(--color-just-black);
+  --light: var(--color-surface-white);
+}
+
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  outline: none;
+  background: #E75480;
+  border: solid 2px var(--dark);
+  color: var(--dark);
+  text-decoration: none;
+  border-radius: 99px;
+  padding: 12px 25px;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease-out, border 0.2s ease-out, color 0.2s ease-out, transform 0.2s;
+
+  font-family: Mori, sans-serif;
+}
+
+.custom-btn:hover {
+  border: solid 2px var(--color-shockingly-green);
+  color: var(--color-shockingly-green);
+}
+
+.light .custom-btn {
+  background: var(--light);
+  border: solid 2px var(--dark);
+  color: var(--dark);
+}
+
+.light .custom-btn:hover {
+  border: solid 2px var(--dark);
+  color: var(--dark);
+}
