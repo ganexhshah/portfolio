@@ -539,98 +539,95 @@ const Hero = () => {
         </section>
 
         {/* Work Section - Redesigned */}
-        <section className="mb-16">
-          <div className="flex flex-col md:flex-row gap-8 items-start">
+        <section className="mb-12 sm:mb-16">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
             {/* Left Side: Title & Description */}
-            <div className="md:w-1/3 sticky top-24">
-              <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-4xl md:text-5xl font-bold font-serif text-black dark:text-white flex items-center gap-3">
-                  Work <span className="text-4xl transform rotate-12 inline-block">🌻</span>
+            <div className="w-full md:w-1/3 md:sticky md:top-24">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-black dark:text-white flex items-center gap-2 sm:gap-3 break-words">
+                  Work <span className="text-3xl sm:text-4xl transform rotate-12 inline-block flex-shrink-0">🌻</span>
                 </h2>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-body mb-8">
+              <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed sm:leading-relaxed font-body mb-6 sm:mb-8 px-1">
                 I craft high-performance, future-ready solutions where speed meets precision. Every line of code I write is a blend of efficiency and structure, designed for scalability and long-term maintainability.
                 For me, great development is about delivering fast without compromising on a solid, lasting foundation.
               </p>
 
-              <a href="/work" className="custom-btn group hidden md:inline-flex">
+              <a href="/work" className="custom-btn group hidden md:inline-flex min-h-[44px]">
                 View All Work <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </a>
             </div>
 
             {/* Right Side: Work Cards */}
-            <div className="md:w-2/3 grid grid-cols-1 gap-6">
+            <div className="w-full md:w-2/3 grid grid-cols-1 gap-4 sm:gap-6">
 
               {/* Digital Pathshala Card */}
-              <div className="group bg-white dark:bg-gray-900 rounded-2xl p-6 border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-center p-2">
-                      {/* Placeholder for Digital Pathshala Logo - using Code icon as fallback */}
-                      <Code className="text-green-600" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:underline decoration-green-500 underline-offset-4 decoration-2 transition-all flex items-center gap-2">
-                        Digital Pathshala <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-gray-400" />
-                      </h3>
-                      <p className="text-gray-500 dark:text-gray-400 font-medium text-sm">
-                        MERN Intern
-                      </p>
-                    </div>
+              <div className="group bg-white dark:bg-gray-900 rounded-2xl p-4 sm:p-6 border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-300 active:scale-[0.98] sm:active:scale-100">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-center p-2">
+                    {/* Placeholder for Digital Pathshala Logo - using Code icon as fallback */}
+                    <Code className="text-green-600" size={20} />
                   </div>
-                  <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full text-xs font-semibold text-gray-600 dark:text-gray-300 whitespace-nowrap">
-                    Sep. 2025 - Present
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 dark:text-white transition-all flex flex-wrap items-center gap-1 sm:gap-2 break-words word-wrap overflow-wrap leading-snug sm:leading-normal mb-1">
+                      <span className="break-words">Digital Pathshala</span>
+                      <ArrowRight size={14} className="hidden sm:inline opacity-0 md:group-hover:opacity-100 -translate-x-2 md:group-hover:translate-x-0 transition-all text-gray-400 flex-shrink-0" />
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium text-xs sm:text-sm mb-2 leading-relaxed">
+                      MERN Intern
+                    </p>
+                    <div className="bg-gray-100 dark:bg-gray-800 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold text-gray-600 dark:text-gray-300 inline-block">
+                      Sep. 2025 - Present
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Swikar Codes Card */}
-              <div className="group bg-white dark:bg-gray-900 rounded-2xl p-6 border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-center overflow-hidden">
-                      <img src={profileImg} alt="Swikar Codes" className="w-full h-full object-cover opacity-90" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:underline decoration-blue-500 underline-offset-4 decoration-2 transition-all flex items-center gap-2">
-                        Swikar Codes <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-gray-400" />
-                      </h3>
-                      <p className="text-gray-500 dark:text-gray-400 font-medium text-sm">
-                        Full Stack Developer
-                      </p>
-                    </div>
+              <div className="group bg-white dark:bg-gray-900 rounded-2xl p-4 sm:p-6 border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-300 active:scale-[0.98] sm:active:scale-100">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-center overflow-hidden">
+                    <img src={profileImg} alt="Swikar Codes" className="w-full h-full object-cover opacity-90" />
                   </div>
-                  <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full text-xs font-semibold text-gray-600 dark:text-gray-300 whitespace-nowrap">
-                    Aug. 2024 - Feb. 2025
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 dark:text-white transition-all flex flex-wrap items-center gap-1 sm:gap-2 break-words word-wrap overflow-wrap leading-snug sm:leading-normal mb-1">
+                      <span className="break-words">Swikar Codes</span>
+                      <ArrowRight size={14} className="hidden sm:inline opacity-0 md:group-hover:opacity-100 -translate-x-2 md:group-hover:translate-x-0 transition-all text-gray-400 flex-shrink-0" />
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium text-xs sm:text-sm mb-2 leading-relaxed">
+                      Full Stack Developer
+                    </p>
+                    <div className="bg-gray-100 dark:bg-gray-800 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold text-gray-600 dark:text-gray-300 inline-block">
+                      Aug. 2024 - Feb. 2025
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Freelancing Card */}
-              <div className="group bg-white dark:bg-gray-900 rounded-2xl p-6 border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-center p-2">
-                      <User className="text-orange-500" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:underline decoration-orange-500 underline-offset-4 decoration-2 transition-all flex items-center gap-2">
-                        Freelancing <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-gray-400" />
-                      </h3>
-                      <p className="text-gray-500 dark:text-gray-400 font-medium text-sm">
-                        Full Stack Developer
-                      </p>
-                    </div>
+              <div className="group bg-white dark:bg-gray-900 rounded-2xl p-4 sm:p-6 border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-300 active:scale-[0.98] sm:active:scale-100">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-center p-2">
+                    <User className="text-orange-500" size={20} />
                   </div>
-                  <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full text-xs font-semibold text-gray-600 dark:text-gray-300 whitespace-nowrap">
-                    Aug. 2024 - Present
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 dark:text-white transition-all flex flex-wrap items-center gap-1 sm:gap-2 break-words word-wrap overflow-wrap leading-snug sm:leading-normal mb-1">
+                      <span className="break-words">Freelancing</span>
+                      <ArrowRight size={14} className="hidden sm:inline opacity-0 md:group-hover:opacity-100 -translate-x-2 md:group-hover:translate-x-0 transition-all text-gray-400 flex-shrink-0" />
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium text-xs sm:text-sm mb-2 leading-relaxed">
+                      Full Stack Developer
+                    </p>
+                    <div className="bg-gray-100 dark:bg-gray-800 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold text-gray-600 dark:text-gray-300 inline-block">
+                      Aug. 2024 - Present
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Mobile View All Button */}
-              <div className="md:hidden mt-6">
-                <a href="/work" className="custom-btn group w-full justify-center">
+              <div className="md:hidden mt-4 sm:mt-6">
+                <a href="/work" className="custom-btn group w-full justify-center min-h-[44px] flex items-center">
                   View All Work <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </a>
               </div>
@@ -644,8 +641,8 @@ const Hero = () => {
             {/* Left Side: Title & Description */}
             <div className="md:w-1/3 sticky top-24">
               <div className="flex items-center gap-3 mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold font-serif text-black dark:text-white flex items-center gap-3">
-                  Featured <span className="block">Projects</span> <span className="transform rotate-12 inline-block text-2xl">🌺</span>
+                <h2 className="text-3xl md:text-4xl font-bold font-serif text-black dark:text-white flex items-center gap-3">
+                  Featured Projects <span className="transform rotate-12 inline-block text-3xl">🌺</span>
                 </h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-body mb-8">

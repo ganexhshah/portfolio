@@ -129,6 +129,73 @@ select,
   }
 }
 
+@layer utilities {
+  /* Mobile-friendly text wrapping */
+  .word-wrap {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .overflow-wrap {
+    overflow-wrap: break-word;
+  }
+
+  /* Touch-friendly tap targets */
+  @media (max-width: 768px) {
+    .custom-btn {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 12px 24px;
+      font-size: 0.875rem;
+    }
+    
+    /* Disable hover effects on touch devices */
+    @media (hover: none) {
+      .group:hover .group-hover\:opacity-100 {
+        opacity: 0;
+      }
+      
+      .group:hover .group-hover\:translate-x-0 {
+        transform: translateX(-0.5rem);
+      }
+      
+      .group:hover .group-hover\:underline {
+        text-decoration: none;
+      }
+    }
+  }
+
+  /* Responsive breakpoints for specific mobile sizes */
+  @media (min-width: 320px) {
+    .text-responsive-xs {
+      font-size: 0.75rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  @media (min-width: 375px) {
+    .text-responsive-sm {
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  @media (min-width: 414px) {
+    .text-responsive-md {
+      font-size: 1rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .text-responsive-lg {
+      font-size: 1.125rem;
+      line-height: 2rem;
+    }
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 4px;
