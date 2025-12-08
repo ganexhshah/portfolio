@@ -1,94 +1,48 @@
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+import { Home, Info, Image, Wrench, Users, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 
-  const footerLinks = {
-    general: [
-      { name: "About", href: "#about" },
-      { name: "Work", href: "#work" },
-      { name: "Projects", href: "#projects" },
-      { name: "Contact", href: "#contact" }
-    ],
-    social: [
-      { name: "GitHub", href: "https://github.com/GaneshShah" },
-      { name: "LinkedIn", href: "https://linkedin.com/in/ganesh-shah" },
-      { name: "Instagram", href: "https://instagram.com" },
-      { name: "Twitter", href: "https://twitter.com" }
-    ]
-  };
+const Footer = () => {
+  const footerLinks = [
+    { name: "About", href: "/about", icon: Info },
+    { name: "Gallery", href: "/gallery", icon: Image },
+    { name: "Tools", href: "/tools", icon: Wrench },
+    { name: "Connections", href: "/connections", icon: Users },
+    { name: "GitHub", href: "https://github.com/GaneshShah", icon: Github, external: true },
+    { name: "LinkedIn", href: "https://linkedin.com/in/ganesh-shah", icon: Linkedin, external: true },
+    { name: "Twitter", href: "https://twitter.com", icon: Twitter, external: true },
+    { name: "Email", href: "mailto:contact@ganeshshah.com", icon: Mail, external: true },
+  ];
 
   return (
-    <footer className="bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 mt-20">
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* General Links */}
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-4 text-sm uppercase tracking-wider">
-              General
-            </h3>
-            <ul className="space-y-2">
-              {footerLinks.general.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <footer className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-900 mt-16">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* Footer Links Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 mb-6">
+          {footerLinks.map((link) => {
+            const Icon = link.icon;
+            const LinkComponent = link.external ? 'a' : Link;
+            const linkProps = link.external 
+              ? { href: link.href, target: "_blank", rel: "noopener noreferrer" }
+              : { to: link.href };
 
-          {/* Social Links */}
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-4 text-sm uppercase tracking-wider">
-              Social
-            </h3>
-            <ul className="space-y-2">
-              {footerLinks.social.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* About */}
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-4 text-sm uppercase tracking-wider">
-              About
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-              A passionate web developer crafting amazing digital experiences with modern technologies.
-            </p>
-          </div>
+            return (
+              <LinkComponent
+                key={link.name}
+                {...linkProps}
+                className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors text-sm group"
+              >
+                <Icon size={16} className="flex-shrink-0 text-gray-500 dark:text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors" />
+                <span>{link.name}</span>
+              </LinkComponent>
+            );
+          })}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Proudly Made in Nepal by{" "}
-              <a
-                href="https://linkedin.com/in/ganesh-shah"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-pink-500 hover:underline font-medium"
-              >
-                Ganesh Shah
-              </a>
-            </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              © {currentYear} All rights reserved
-            </p>
-          </div>
+        {/* Bottom Text */}
+        <div className="pt-6 border-t border-gray-200 dark:border-gray-800">
+          <p className="text-xs text-center text-gray-500 dark:text-gray-500">
+            © {new Date().getFullYear()} Ganesh Shah · Built with React & Tailwind CSS
+          </p>
         </div>
       </div>
     </footer>

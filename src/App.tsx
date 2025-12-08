@@ -4,6 +4,8 @@ import Gallery from "@/components/Gallery";
 import About from "@/components/About";
 import Tools from "@/components/Tools";
 import Connections from "@/components/Connections";
+import Projects from "@/components/Projects";
+import ProjectDetail from "@/components/ProjectDetail";
 import MouseParticleTrail from "@/components/MouseParticleTrail";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import React, { Suspense } from "react";
@@ -37,6 +39,8 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/tools" element={<Tools />} />
               <Route path="/connections" element={<Connections />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:projectId" element={<ProjectDetail />} />
             </Routes>
           </main>
         </ReactLenis>
