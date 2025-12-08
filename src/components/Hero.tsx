@@ -636,138 +636,136 @@ const Hero = () => {
         </section>
 
         {/* Featured Projects Section */}
-        <section className="mb-16">
-          <div className="flex flex-col md:flex-row gap-8 items-start">
+        <section className="mb-12 sm:mb-16">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
             {/* Left Side: Title & Description */}
-            <div className="md:w-1/3 sticky top-24">
-              <div className="flex items-center gap-3 mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold font-serif text-black dark:text-white flex items-center gap-3">
-                  Featured Projects <span className="transform rotate-12 inline-block text-3xl">🌺</span>
+            <div className="w-full md:w-1/3 md:sticky md:top-24">
+              <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-black dark:text-white flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap">
+                  <span className="break-words">Featured Projects</span> <span className="transform rotate-12 inline-block text-2xl sm:text-3xl flex-shrink-0">🌺</span>
                 </h2>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-body mb-8">
+              <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed sm:leading-relaxed font-body mb-6 sm:mb-8 px-1">
                 I love building things that solve real problems. Here are a few open-source projects and platforms I've crafted using the latest web technologies.
               </p>
-              <a href="/projects" className="custom-btn group hidden md:inline-flex">
+              <a href="/projects" className="custom-btn group hidden md:inline-flex min-h-[44px]">
                 View All Projects <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </a>
             </div>
 
             {/* Right Side: Project Content */}
-            <div className="md:w-2/3 flex flex-col gap-4">
+            <div className="w-full md:w-2/3 flex flex-col gap-4 sm:gap-6">
               {/* Yeti PhotoBooth */}
-              <div className="group border-b border-gray-100 dark:border-gray-800 pb-4 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-6 rounded-3xl transition-colors">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors cursor-pointer flex items-center gap-3">
-                    Yeti PhotoBooth <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0" size={18} />
+              <div className="group border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-colors active:scale-[0.98] sm:active:scale-100">
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white transition-colors cursor-pointer flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap leading-snug sm:leading-normal">
+                    <span className="break-words">Yeti PhotoBooth</span> <ArrowRight className="hidden sm:inline opacity-0 md:group-hover:opacity-100 transition-opacity transform -translate-x-2 md:group-hover:translate-x-0 flex-shrink-0" size={16} />
                   </h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4 sm:mb-6 text-xs sm:text-sm">
                   This project, "Yeti Photobooth," is an open-source web application that enables users to capture new photos with their device's camera or upload existing ones. It offers creative editing features such...
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
-                    <Globe size={12} /> Next.js
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
+                    <Globe size={10} className="sm:w-3 sm:h-3" /> Next.js
                   </span>
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
-                    <Palette size={12} /> Tailwind
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
+                    <Palette size={10} className="sm:w-3 sm:h-3" /> Tailwind
                   </span>
                 </div>
               </div>
 
               {/* Web Nepal */}
-              <div className="group border-b border-gray-100 dark:border-gray-800 pb-4 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-6 rounded-3xl transition-colors">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors cursor-pointer flex items-center gap-3">
-                    Web Nepal <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0" size={18} />
+              <div className="group border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-colors active:scale-[0.98] sm:active:scale-100">
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white transition-colors cursor-pointer flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap leading-snug sm:leading-normal">
+                    <span className="break-words">Web Nepal</span> <ArrowRight className="hidden sm:inline opacity-0 md:group-hover:opacity-100 transition-opacity transform -translate-x-2 md:group-hover:translate-x-0 flex-shrink-0" size={16} />
                   </h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4 sm:mb-6 text-xs sm:text-sm">
                   Web Nepal is an innovative learning platform designed to teach web development through hands-on coding exercises. Students can practice HTML, CSS, JavaScript, and other web technologies with real-time...
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
-                    <Globe size={12} /> Next.js
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
+                    <Globe size={10} className="sm:w-3 sm:h-3" /> Next.js
                   </span>
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
-                    <Sparkles size={12} /> Gemini API
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
+                    <Sparkles size={10} className="sm:w-3 sm:h-3" /> Gemini API
                   </span>
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
-                    <Lock size={12} /> NextAuth
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
+                    <Lock size={10} className="sm:w-3 sm:h-3" /> NextAuth
                   </span>
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
-                    <Database size={12} /> Prisma
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform flex items-center gap-1">
+                    <Database size={10} className="sm:w-3 sm:h-3" /> Prisma
                   </span>
                 </div>
               </div>
 
               {/* Mobile View All Button */}
-              <div className="md:hidden mt-2">
-                <a href="/projects" className="custom-btn group w-full justify-center">
+              <div className="md:hidden mt-2 sm:mt-4">
+                <a href="/projects" className="custom-btn group w-full justify-center min-h-[44px] flex items-center">
                   View All Projects <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </a>
               </div>
             </div>
           </div>
         </section>        {/* Featured Blogs Section */}
-        {/* Featured Blogs Section */}
-        <section className="mb-16">
-          <div className="flex flex-col md:flex-row gap-8 items-start">
+        <section className="mb-12 sm:mb-16">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
             {/* Left Side: Title & Description */}
-            <div className="md:w-1/3 sticky top-24">
-              <div className="flex items-center gap-3 mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold font-serif text-black dark:text-white flex items-center gap-3">
-                  Featured <span className="block">Blogs</span> <span className="transform rotate-12 inline-block text-2xl">✍️</span>
+            <div className="w-full md:w-1/3 md:sticky md:top-24">
+              <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-serif text-black dark:text-white flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap">
+                  <span className="break-words">Featured Blogs</span> <span className="transform rotate-12 inline-block text-xl sm:text-2xl flex-shrink-0">✍️</span>
                 </h2>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-body mb-8">
+              <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed sm:leading-relaxed font-body mb-6 sm:mb-8 px-1">
                 Thoughts, tutorials, and insights about web development, design, and my learning journey.
               </p>
-              <a href="/blog" className="custom-btn group hidden md:inline-flex">
+              <a href="/blog" className="custom-btn group hidden md:inline-flex min-h-[44px]">
                 Read All Articles <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </a>
             </div>
 
             {/* Right Side: Blog Content */}
-            <div className="md:w-2/3 flex flex-col gap-4">
-              {/* Blog Post Placeholder */}
+            <div className="w-full md:w-2/3 flex flex-col gap-4 sm:gap-6">
               {/* Blog Post 1 */}
-              <div className="group border-b border-gray-100 dark:border-gray-800 pb-4 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-6 rounded-3xl transition-colors">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors cursor-pointer flex items-center gap-3">
-                    Mastering React Hooks <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0" size={18} />
+              <div className="group border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-colors active:scale-[0.98] sm:active:scale-100">
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white transition-colors cursor-pointer flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap leading-snug sm:leading-normal">
+                    <span className="break-words">Mastering React Hooks</span> <ArrowRight className="hidden sm:inline opacity-0 md:group-hover:opacity-100 transition-opacity transform -translate-x-2 md:group-hover:translate-x-0 flex-shrink-0" size={16} />
                   </h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4 sm:mb-6 text-xs sm:text-sm">
                   A deep dive into useState, useEffect, and custom hooks. Learn how to write cleaner, more reusable component logic with practical examples.
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform">React</span>
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform">Hooks</span>
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform">JavaScript</span>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform">React</span>
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform">Hooks</span>
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform">JavaScript</span>
                 </div>
               </div>
 
               {/* Blog Post 2 */}
-              <div className="group border-b border-gray-100 dark:border-gray-800 pb-4 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-6 rounded-3xl transition-colors">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors cursor-pointer flex items-center gap-3">
-                    The Zen of Tailwind CSS <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0" size={18} />
+              <div className="group border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-colors active:scale-[0.98] sm:active:scale-100">
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white transition-colors cursor-pointer flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap leading-snug sm:leading-normal">
+                    <span className="break-words">The Zen of Tailwind CSS</span> <ArrowRight className="hidden sm:inline opacity-0 md:group-hover:opacity-100 transition-opacity transform -translate-x-2 md:group-hover:translate-x-0 flex-shrink-0" size={16} />
                   </h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4 sm:mb-6 text-xs sm:text-sm">
                   Why utility-first CSS is the future of web styling. Discover how to build responsive, beautiful interfaces faster than ever before.
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform">Tailwind</span>
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform">CSS</span>
-                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium hover:scale-105 transition-transform">Design</span>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform">Tailwind</span>
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform">CSS</span>
+                  <span className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium hover:scale-105 transition-transform">Design</span>
                 </div>
               </div>
 
               {/* Mobile View All Button */}
-              <div className="md:hidden mt-2">
-                <a href="/blog" className="custom-btn group w-full justify-center">
+              <div className="md:hidden mt-2 sm:mt-4">
+                <a href="/blog" className="custom-btn group w-full justify-center min-h-[44px] flex items-center">
                   Read All Articles <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </a>
               </div>
