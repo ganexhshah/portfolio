@@ -328,44 +328,9 @@ const Hero = () => {
           </div>
         </section>
 
-        {/* Three Column Section - Learn More, Toolbox, Connections */}
+        {/* Two Column Section - Toolbox, Connections */}
         <section className="mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
-            {/* Learn More About Me - Enhanced */}
-            <div className="flex flex-col h-full group bg-gradient-to-br from-white via-pink-50/30 to-purple-50/30 dark:from-gray-900 dark:via-pink-900/10 dark:to-purple-900/10 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-800/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm text-center items-center">
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 animate-pulse"></div>
-                <h3 className="text-2xl font-bold font-heading bg-gradient-to-r from-pink-600 to-purple-600 text-transparent bg-clip-text">
-                  Learn more about me
-                </h3>
-              </div>
-
-              <div className="flex justify-center mt-6 mb-8">
-                <div className="relative group/img">
-                  {/* Animated gradient rings */}
-                  <div className="absolute -inset-3 bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 rounded-3xl blur opacity-40 group-hover/img:opacity-100 animate-pulse transition duration-500"></div>
-                  <div className="absolute -inset-2 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-3xl blur-sm opacity-30 group-hover/img:opacity-80 animate-spin-slow transition duration-500"></div>
-
-                  <div className="relative">
-                    <img
-                      src={profileImg}
-                      alt="Profile"
-                      className="relative w-36 h-44 object-cover rounded-3xl shadow-2xl transform group-hover/img:scale-105 transition-transform duration-500 border-4 border-white dark:border-gray-800"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* About Me Button */}
-              <div className="flex justify-center mt-auto pt-6">
-                <a
-                  href="/about"
-                  className="custom-btn hover:scale-105"
-                >
-                  <User size={20} /> About Me
-                </a>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
 
             {/* Toolbox - Enhanced */}
             <div className="flex flex-col h-full group bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-cyan-900/10 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-800/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm text-center items-center">
