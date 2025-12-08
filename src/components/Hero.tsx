@@ -333,17 +333,13 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
 
             {/* Toolbox - Enhanced */}
-            <div className="flex flex-col h-full group bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-cyan-900/10 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-800/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm text-center items-center">
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-pulse"></div>
-                <h3 className="text-2xl font-bold font-heading bg-gradient-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text">
+            <div className="flex flex-col h-full group bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/30 dark:from-gray-900 dark:via-blue-900/10 dark:to-cyan-900/10 rounded-3xl p-6 border border-gray-200/50 dark:border-gray-800/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm text-center items-center">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <h3 className="text-xl font-bold font-heading bg-gradient-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text">
                   Toolbox 🛠️
                 </h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 font-body">
-                Check out my favorite tools and spots around the web.
-              </p>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2">
                 {/* Tool 1 - React */}
                 <div className="flex items-center justify-center p-3 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-2xl hover:scale-105 transition-transform cursor-pointer group">
                   <svg className="w-8 h-8 text-cyan-500 group-hover:rotate-180 transition-transform duration-700" viewBox="0 0 24 24" fill="currentColor">
@@ -409,35 +405,31 @@ const Hero = () => {
               </div>
 
               {/* My Tools Button */}
-              <div className="flex justify-center mt-auto pt-6">
+              <div className="flex justify-center mt-auto pt-4">
                 <a
                   href="/tools"
                   className="custom-btn hover:scale-105"
                 >
-                  <Wrench size={20} /> My Tools
+                  <Wrench size={18} /> My Tools
                 </a>
               </div>
             </div>
 
             {/* Connections - Enhanced */}
-            <div className="flex flex-col h-full group bg-gradient-to-br from-white via-purple-50/30 to-pink-50/30 dark:from-gray-900 dark:via-purple-900/10 dark:to-pink-900/10 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-800/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm text-center items-center">
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse"></div>
-                <h3 className="text-2xl font-bold font-heading bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
+            <div className="flex flex-col h-full group bg-gradient-to-br from-white via-purple-50/30 to-pink-50/30 dark:from-gray-900 dark:via-purple-900/10 dark:to-pink-900/10 rounded-3xl p-6 border border-gray-200/50 dark:border-gray-800/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm text-center items-center">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <h3 className="text-xl font-bold font-heading bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
                   Connections 🌐
                 </h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 font-body">
-                An evolving list of people I've met and those I wish to meet.
-              </p>
 
               {/* Circular connections layout - Enhanced */}
-              <div className="relative h-48 w-full flex items-center justify-center">
+              <div className="relative h-40 w-full flex items-center justify-center">
                 {/* Center profile with pulse animation */}
                 <div className="absolute z-10 animate-pulse-slow">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-md opacity-50 animate-ping-slow"></div>
-                    <div className="relative w-20 h-20 rounded-full border-4 border-white dark:border-gray-800 shadow-2xl overflow-hidden transform hover:scale-110 transition-transform duration-300">
+                    <div className="relative w-16 h-16 rounded-full border-3 border-white dark:border-gray-800 shadow-2xl overflow-hidden transform hover:scale-110 transition-transform duration-300">
                       <img src={profileImg} alt="Center" className="w-full h-full object-cover" />
                     </div>
                   </div>
@@ -459,44 +451,44 @@ const Hero = () => {
 
                 {/* Surrounding profiles */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 animate-float" style={{ animationDelay: '0s' }}>
-                  <div className="w-12 h-12 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white transform hover:scale-110 transition-transform cursor-pointer">
-                    <Github size={24} />
+                  <div className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white transform hover:scale-110 transition-transform cursor-pointer">
+                    <Github size={18} />
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 animate-float" style={{ animationDelay: '0.5s' }}>
-                  <div className="w-12 h-12 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 transform hover:scale-110 transition-transform cursor-pointer">
-                    <Linkedin size={24} />
+                  <div className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 transform hover:scale-110 transition-transform cursor-pointer">
+                    <Linkedin size={18} />
                   </div>
                 </div>
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 animate-float" style={{ animationDelay: '1s' }}>
-                  <div className="w-12 h-12 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-sky-100 dark:bg-sky-900 text-sky-500 dark:text-sky-300 transform hover:scale-110 transition-transform cursor-pointer">
-                    <Twitter size={24} />
+                  <div className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-sky-100 dark:bg-sky-900 text-sky-500 dark:text-sky-300 transform hover:scale-110 transition-transform cursor-pointer">
+                    <Twitter size={18} />
                   </div>
                 </div>
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 animate-float" style={{ animationDelay: '1.5s' }}>
-                  <div className="w-12 h-12 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-300 transform hover:scale-110 transition-transform cursor-pointer">
-                    <Youtube size={24} />
+                  <div className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-300 transform hover:scale-110 transition-transform cursor-pointer">
+                    <Youtube size={18} />
                   </div>
                 </div>
-                <div className="absolute top-4 right-8 animate-float" style={{ animationDelay: '0.8s' }}>
-                  <div className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 transform hover:scale-110 transition-transform cursor-pointer">
-                    <Instagram size={20} />
+                <div className="absolute top-2 right-6 animate-float" style={{ animationDelay: '0.8s' }}>
+                  <div className="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 transform hover:scale-110 transition-transform cursor-pointer">
+                    <Instagram size={16} />
                   </div>
                 </div>
-                <div className="absolute bottom-4 left-8 animate-float" style={{ animationDelay: '1.3s' }}>
-                  <div className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-300 transform hover:scale-110 transition-transform cursor-pointer">
-                    <Mail size={20} />
+                <div className="absolute bottom-2 left-6 animate-float" style={{ animationDelay: '1.3s' }}>
+                  <div className="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 shadow-md flex items-center justify-center bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-300 transform hover:scale-110 transition-transform cursor-pointer">
+                    <Mail size={16} />
                   </div>
                 </div>
               </div>
 
               {/* Connections Button */}
-              <div className="flex justify-center mt-auto pt-6">
+              <div className="flex justify-center mt-auto pt-4">
                 <a
                   href="/connections"
                   className="custom-btn hover:scale-105"
                 >
-                  <Globe size={20} /> Connections
+                  <Globe size={18} /> Connections
                 </a>
               </div>
             </div>
