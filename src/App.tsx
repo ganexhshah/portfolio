@@ -7,6 +7,7 @@ import Connections from "@/components/Connections";
 import Projects from "@/components/Projects";
 import ProjectDetail from "@/components/ProjectDetail";
 import MouseParticleTrail from "@/components/MouseParticleTrail";
+import Chatbot from "@/components/Chatbot";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import React, { Suspense } from "react";
 import CustomCursor from "./components/ui/Cursor";
@@ -42,6 +43,7 @@ const App = () => {
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:projectId" element={<ProjectDetail />} />
             </Routes>
+            <Chatbot />
           </main>
         </ReactLenis>
       </BrowserRouter>
