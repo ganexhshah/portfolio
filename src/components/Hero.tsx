@@ -1,5 +1,5 @@
 import profileImg from "@/assets/profile.jpg";
-import { User, Wrench, Globe, Code, Sparkles, ArrowRight, Palette, Lock, Database } from "lucide-react";
+import { User, Wrench, Globe, Code, Sparkles, ArrowRight, Palette, Lock, Database, Github, Linkedin, Twitter, Youtube, Instagram, Mail } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";

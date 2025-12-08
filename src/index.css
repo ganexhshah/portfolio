@@ -68,8 +68,8 @@ select,
 
 @layer base {
   :root {
-    --background: 48 100% 95%;
-    /* Light yellow background */
+    --background: 0 0% 100%;
+    /* White background */
     --foreground: 0 0% 10%;
     /* Dark text */
     --muted: 45 80% 85%;
