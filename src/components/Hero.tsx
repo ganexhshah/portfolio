@@ -1,4 +1,9 @@
 import profileImg from "@/assets/profile.jpg";
+import galleryImg1 from "@/assets/gallery/1.png";
+import galleryImg2 from "@/assets/gallery/2.png";
+import galleryImg3 from "@/assets/gallery/3.png";
+import galleryImg4 from "@/assets/gallery/4.png";
+import galleryImg5 from "@/assets/gallery/5.png";
 import { User, Wrench, Globe, Code, Sparkles, ArrowRight, Palette, Lock, Database, Github, Linkedin, Twitter, Youtube, Instagram, Mail } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
@@ -257,7 +262,7 @@ const Hero = () => {
               <div className="relative group transform -rotate-6 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
                 <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
                 <img
-                  src={profileImg}
+                  src={galleryImg1}
                   alt="Gallery 1"
                   className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
                 />
@@ -267,7 +272,7 @@ const Hero = () => {
               <div className="relative group transform rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
                 <img
-                  src={profileImg}
+                  src={galleryImg2}
                   alt="Gallery 2"
                   className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
                 />
@@ -277,7 +282,7 @@ const Hero = () => {
               <div className="relative group transform rotate-1 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
                 <img
-                  src={profileImg}
+                  src={galleryImg3}
                   alt="Gallery 3"
                   className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
                 />
@@ -287,7 +292,7 @@ const Hero = () => {
               <div className="relative group transform -rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
                 <img
-                  src={profileImg}
+                  src={galleryImg4}
                   alt="Gallery 4"
                   className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
                 />
@@ -297,7 +302,7 @@ const Hero = () => {
               <div className="relative group transform rotate-6 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
                 <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
                 <img
-                  src={profileImg}
+                  src={galleryImg5}
                   alt="Gallery 5"
                   className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
                 />
