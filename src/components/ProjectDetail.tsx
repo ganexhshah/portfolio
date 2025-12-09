@@ -1,121 +1,40 @@
-import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Calendar, Tag, Layers, Trophy, Database, Server, Globe, Smartphone, Code2, Cpu, Zap, Radio, Layout, Box, Terminal } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
+import { projectsData } from "@/data/projects";
+import { motion } from "motion/react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+// Helper function to map tech names to icons
+const getTechIcon = (name: string) => {
+  const n = name.toLowerCase();
+  if (n.includes("react") || n.includes("next") || n.includes("ui") || n.includes("css") || n.includes("bootstrap") || n.includes("tailwind")) return <Layout size={18} />;
+  if (n.includes("php") || n.includes("node") || n.includes("laravel") || n.includes("backend") || n.includes("express")) return <Server size={18} />;
+  if (n.includes("sql") || n.includes("mongo") || n.includes("db") || n.includes("firebase") || n.includes("storage")) return <Database size={18} />;
+  if (n.includes("android") || n.includes("mobile") || n.includes("app") || n.includes("kotlin")) return <Smartphone size={18} />;
+  if (n.includes("webrtc") || n.includes("socket") || n.includes("real-time") || n.includes("agora") || n.includes("communication")) return <Radio size={18} />;
+  if (n.includes("ai") || n.includes("model") || n.includes("gemini") || n.includes("mistral") || n.includes("bot") || n.includes("openai")) return <Cpu size={18} />;
+  if (n.includes("slim") || n.includes("fast") || n.includes("optimization") || n.includes("performance")) return <Zap size={18} />;
+  if (n.includes("java") || n.includes("python") || n.includes("c++") || n.includes("typescript") || n.includes("javascript")) return <Code2 size={18} />;
+  if (n.includes("web") || n.includes("site") || n.includes("http")) return <Globe size={18} />;
+  if (n.includes("terminal") || n.includes("bash") || n.includes("shell")) return <Terminal size={18} />;
+
+  return <Box size={18} />;
+};
 
 const ProjectDetail = () => {
   const { projectId } = useParams();
-
-  const projects = {
-    "tictactoe": {
-      title: "Tic Tac Toe Game",
-      tagline: "Classic Game with Modern Design",
-      description: "A classic Tic Tac Toe game built with modern web technologies. This project showcases clean code architecture, smooth animations, and an intuitive user interface that makes the timeless game enjoyable for all ages.",
-      longDescription: `This Tic Tac Toe game was created to demonstrate proficiency in React state management and game logic implementation. The project focuses on creating a smooth, responsive user experience with attention to detail in animations and visual feedback.
-
-The game features a clean, modern design with smooth transitions and animations that enhance the playing experience. Built with React, it showcases component-based architecture and efficient state management for tracking game progress and determining winners.`,
-      features: [
-        "Two-player local gameplay",
-        "Smooth animations and transitions",
-        "Win detection algorithm",
-        "Score tracking system",
-        "Reset and new game functionality",
-        "Responsive design for all devices",
-        "Clean and intuitive UI",
-        "Visual feedback for moves",
-        "Game state management"
-      ],
-      techStack: [
-        { name: "React", description: "UI library for building components" },
-        { name: "JavaScript", description: "Core game logic" },
-        { name: "CSS", description: "Styling and animations" },
-        { name: "HTML5", description: "Semantic markup" }
-      ],
-      challenges: [
-        {
-          title: "Win Detection Logic",
-          solution: "Implemented efficient algorithm to check all possible winning combinations after each move without performance overhead."
-        },
-        {
-          title: "State Management",
-          solution: "Used React hooks effectively to manage game state, player turns, and score tracking in a clean and maintainable way."
-        },
-        {
-          title: "Smooth Animations",
-          solution: "Leveraged CSS transitions and React's rendering cycle to create smooth, performant animations for game interactions."
-        }
-      ],
-      github: "https://github.com/GaneshShah/tictactoe",
-      demo: "https://tictactoe.ganeshsahu.com.np/",
-      date: "2024",
-      status: "Active",
-      gradient: "from-pink-500 to-purple-500",
-      screenshots: [
-        { url: "/projects/tictactoe/screenshot-1.jpg", caption: "Gameplay View" },
-        { url: "/projects/tictactoe/screenshot-2.jpg", caption: "Win Detection" },
-        { url: "/projects/tictactoe/screenshot-3.jpg", caption: "Mobile Responsive" }
-      ]
-    },
-    "web-nepal": {
-      title: "Web Nepal",
-      tagline: "Learn Web Development Through Practice",
-      description: "Web Nepal is an innovative learning platform designed to teach web development through hands-on coding exercises. The platform provides an interactive environment where students can practice HTML, CSS, and JavaScript with real-time feedback.",
-      longDescription: `Web Nepal was created to address the gap in practical, hands-on web development education. The platform combines traditional learning with modern AI assistance, providing students with instant feedback and personalized guidance.
-
-The application uses the Gemini API to provide intelligent code suggestions and explanations, making it easier for beginners to understand complex concepts. With a focus on practical learning, students build real projects while receiving guidance every step of the way.`,
-      features: [
-        "Interactive code editor with syntax highlighting",
-        "Real-time preview of HTML, CSS, and JavaScript",
-        "AI-powered code assistance using Gemini API",
-        "Structured learning paths for beginners",
-        "Project-based learning approach",
-        "Progress tracking and achievements",
-        "User authentication with NextAuth",
-        "Save and share your projects",
-        "Community features for collaboration"
-      ],
-      techStack: [
-        { name: "Next.js 14", description: "Full-stack React framework" },
-        { name: "Gemini API", description: "AI-powered assistance" },
-        { name: "NextAuth", description: "Authentication solution" },
-        { name: "Prisma", description: "Database ORM" },
-        { name: "PostgreSQL", description: "Relational database" },
-        { name: "Tailwind CSS", description: "Styling framework" }
-      ],
-      challenges: [
-        {
-          title: "Real-time Code Execution",
-          solution: "Implemented sandboxed iframe execution with proper security measures to safely run user code."
-        },
-        {
-          title: "AI Integration",
-          solution: "Optimized Gemini API calls with caching and rate limiting to provide fast responses while managing costs."
-        },
-        {
-          title: "User Progress Tracking",
-          solution: "Designed efficient database schema with Prisma to track user progress across multiple learning paths."
-        }
-      ],
-      github: "https://github.com/GaneshShah/web-nepal",
-      demo: "https://web-nepal.vercel.app",
-      date: "2024",
-      status: "Active",
-      gradient: "from-blue-500 to-cyan-500",
-      screenshots: [
-        { url: "/projects/web-nepal/screenshot-1.jpg", caption: "Dashboard Overview" },
-        { url: "/projects/web-nepal/screenshot-2.jpg", caption: "Code Editor" },
-        { url: "/projects/web-nepal/screenshot-3.jpg", caption: "Learning Path" }
-      ]
-    }
-  };
-
-  const project = projects[projectId as keyof typeof projects];
+  // Using 'as any' to bypass strict type checking for optional fields in this rapid iteration
+  const project = projectsData[projectId as keyof typeof projectsData] as any;
 
   if (!project) {
     return (
       <div className="min-h-screen bg-white dark:bg-gray-950 pt-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Project Not Found</h1>
-          <Link to="/projects" className="text-pink-500 hover:underline">
-            Back to Projects
+          <p className="text-gray-500 mb-8">The project you are looking for doesn't exist or has been removed.</p>
+          <Link to="/projects">
+            <Button>Back to Projects</Button>
           </Link>
         </div>
       </div>
@@ -123,167 +42,198 @@ The application uses the Gemini API to provide intelligent code suggestions and 
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 pt-20">
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Back Button */}
+    <div className="min-h-screen bg-gray-50/50 dark:bg-gray-950 pt-24 pb-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Back Navigation */}
         <Link
           to="/projects"
-          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-8 transition-colors group"
         >
-          <ArrowLeft size={20} />
-          <span>Back to Projects</span>
+          <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-full group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors">
+            <ArrowLeft size={16} />
+          </div>
+          <span className="font-medium">Back to Projects</span>
         </Link>
 
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r ${project.gradient} text-transparent bg-clip-text`}>
-              {project.title}
-            </h1>
-            <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-semibold rounded-full">
-              {project.status}
-            </span>
-          </div>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-            {project.tagline}
-          </p>
-
-          {/* Meta Info */}
-          <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-400 mb-6">
-            <div className="flex items-center gap-2">
-              <Calendar size={16} />
-              <span>{project.date}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Tag size={16} />
-              <span>{project.techStack.length} Technologies</span>
-            </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-4">
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-medium hover:shadow-lg transition-all hover:scale-105"
+        {/* Hero Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+          <div className="lg:col-span-2 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              <ExternalLink size={18} />
-              <span>View Live Demo</span>
-            </a>
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-full font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold font-name bg-gradient-to-r ${project.gradient} text-transparent bg-clip-text mb-4 leading-tight`}>
+                {project.title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 font-heading font-medium p-1">
+                {project.tagline}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-wrap gap-2"
             >
-              <Github size={18} />
-              <span>View Source</span>
-            </a>
+              {project.status === 'completed' ? (
+                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 hover:bg-green-200 border-none px-3 py-1 font-heading">
+                  Completed
+                </Badge>
+              ) : (
+                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 hover:bg-blue-200 border-none px-3 py-1 font-heading">
+                  In Progress
+                </Badge>
+              )}
+              {project.award && (
+                <Badge variant="outline" className="border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-900 dark:bg-amber-900/10 dark:text-amber-400 px-3 py-1 gap-1 font-heading">
+                  <Trophy size={14} /> {project.award}
+                </Badge>
+              )}
+              <Badge variant="outline" className="border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 px-3 py-1 gap-1 font-heading">
+                <Calendar size={14} /> {project.date || project.year}
+              </Badge>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-body"
+            >
+              {project.longDescription || project.description}
+            </motion.p>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                >
+                  <span>Live Demo</span>
+                  <ExternalLink size={18} />
+                </a>
+              )}
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-full font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
+                >
+                  <Github size={18} />
+                  <span>Source Code</span>
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div className="lg:col-span-1">
+            <div className="bg-gray-50 dark:bg-gray-900/50 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 sticky top-24">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2 font-heading">
+                <Tag size={20} className="text-primary" />
+                Technologies
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.tags.map((tag: string) => (
+                  <Badge key={tag} variant="secondary" className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 font-body">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+
+              {project.techStack && project.techStack.length > 0 && (
+                <div className="space-y-4">
+                  <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider font-heading">Stack Details</h4>
+                  <div className="space-y-3">
+                    {project.techStack.map((tech: any, i: number) => (
+                      <div key={i} className="flex items-center gap-3 group">
+                        <div className="w-8 h-8 rounded-lg bg-white dark:bg-gray-800 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700 text-xs font-bold text-gray-500 font-mono transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                          {getTechIcon(tech.name)}
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-900 dark:text-white font-heading">{tech.name}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 font-body">{tech.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Overview */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Overview</h2>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            {project.description}
-          </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-            {project.longDescription}
-          </p>
-        </section>
-
-        {/* Features */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Key Features</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {project.features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800"
-              >
-                <div className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br ${project.gradient} flex items-center justify-center text-white text-xs font-bold`}>
-                  ✓
-                </div>
-                <span className="text-sm text-gray-700 dark:text-gray-300">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Tech Stack */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Tech Stack</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {project.techStack.map((tech, index) => (
-              <div
-                key={index}
-                className="p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition-shadow"
-              >
-                <h3 className="font-bold text-gray-900 dark:text-white mb-1">{tech.name}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{tech.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Screenshots Gallery */}
-        {project.screenshots && project.screenshots.length > 0 && (
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Screenshots</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {project.screenshots.map((screenshot, index) => (
-                <div
-                  key={index}
-                  className="group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:shadow-xl transition-all"
-                >
-                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
-                    <img
-                      src={screenshot.url}
-                      alt={screenshot.caption}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      onError={(e) => {
-                        // Fallback to placeholder if image fails to load
-                        e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f3f4f6' width='400' height='300'/%3E%3Ctext fill='%239ca3af' font-family='sans-serif' font-size='18' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EScreenshot ${index + 1}%3C/text%3E%3C/svg%3E`;
-                      }}
-                    />
+        {/* Features Grid */}
+        {project.features && project.features.length > 0 && (
+          <section className="mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3 font-heading">
+              <Layers className="text-primary" /> Key Features
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.features.map((feature: string, i: number) => (
+                <div key={i} className="flex items-start gap-4 p-5 rounded-2xl bg-gray-50 dark:bg-gray-900/30 border border-gray-100 dark:border-gray-800 hover:border-primary/20 transition-colors">
+                  <div className={`mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br ${project.gradient} flex items-center justify-center text-white text-xs font-bold font-mono`}>
+                    {i + 1}
                   </div>
-                  <div className="p-4">
-                    <p className="text-sm text-gray-700 dark:text-gray-300 font-medium text-center">
-                      {screenshot.caption}
-                    </p>
-                  </div>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium font-body">{feature}</p>
                 </div>
               ))}
-            </div>
-            <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-900/30">
-              <p className="text-sm text-blue-800 dark:text-blue-300 text-center">
-                💡 <strong>Note:</strong> Add your project screenshots to <code className="px-2 py-1 bg-blue-100 dark:bg-blue-900/40 rounded">public/projects/{projectId}/</code> folder to display them here.
-              </p>
             </div>
           </section>
         )}
 
-        {/* Challenges */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Challenges & Solutions</h2>
-          <div className="space-y-6">
-            {project.challenges.map((challenge, index) => (
-              <div
-                key={index}
-                className="p-6 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-xl border border-gray-200 dark:border-gray-700"
-              >
-                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2">
-                  {challenge.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  <span className="font-semibold">Solution:</span> {challenge.solution}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Challenges Section */}
+        {project.challenges && project.challenges.length > 0 && (
+          <section className="mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 font-heading">Technical Challenges</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {project.challenges.map((challenge: any, i: number) => (
+                <div key={i} className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-800 relative overflow-hidden group">
+                  <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${project.gradient}`}></div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary transition-colors font-heading">{challenge.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-body">
+                    {challenge.solution || challenge.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Screenshots Gallery - Only if screenshots exist */}
+        {project.screenshots && project.screenshots.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 font-heading">Project Gallery</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {project.screenshots.map((shot: any, i: number) => (
+                <div key={i} className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 group">
+                  <div className="aspect-video bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+                    <img
+                      src={shot.url}
+                      alt={shot.caption}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f3f4f6' width='400' height='300'/%3E%3Ctext fill='%239ca3af' font-family='sans-serif' font-size='18' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EScreenshot ${i + 1}%3C/text%3E%3C/svg%3E`;
+                      }}
+                    />
+                  </div>
+                  {shot.caption && (
+                    <div className="p-4 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+                      <p className="text-center text-sm font-medium text-gray-600 dark:text-gray-400 font-heading">{shot.caption}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
       </div>
     </div>
   );

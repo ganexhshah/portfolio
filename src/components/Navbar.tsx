@@ -6,7 +6,8 @@ import {
   HiCode,
   HiMail,
   HiMenu,
-  HiX
+  HiX,
+  HiPencil
 } from "react-icons/hi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import profileImage from "@/assets/profile.jpg";
@@ -18,6 +19,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/", icon: HiHome },
     { name: "Projects", href: "/projects", icon: HiBriefcase },
+    { name: "Blog", href: "/blog", icon: HiPencil },
     { name: "Gallery", href: "/gallery", icon: HiBriefcase },
     { name: "About", href: "/about", icon: HiUser },
     { name: "Tools", href: "/tools", icon: HiCode },

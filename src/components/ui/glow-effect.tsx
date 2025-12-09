@@ -7,21 +7,21 @@ export type GlowEffectProps = {
   style?: React.CSSProperties;
   colors?: string[];
   mode?:
-    | 'rotate'
-    | 'pulse'
-    | 'breathe'
-    | 'colorShift'
-    | 'flowHorizontal'
-    | 'static';
+  | 'rotate'
+  | 'pulse'
+  | 'breathe'
+  | 'colorShift'
+  | 'flowHorizontal'
+  | 'static';
   blur?:
-    | number
-    | 'softest'
-    | 'soft'
-    | 'medium'
-    | 'strong'
-    | 'stronger'
-    | 'strongest'
-    | 'none';
+  | number
+  | 'softest'
+  | 'soft'
+  | 'medium'
+  | 'strong'
+  | 'stronger'
+  | 'strongest'
+  | 'none';
   transition?: Transition;
   scale?: number;
   duration?: number;
@@ -40,7 +40,7 @@ export function GlowEffect({
   const BASE_TRANSITION = {
     repeat: Infinity,
     duration: duration,
-    ease: 'linear',
+    ease: 'linear' as const,
   };
 
   const animations = {
