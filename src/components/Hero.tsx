@@ -4,12 +4,20 @@ import galleryImg2 from "@/assets/gallery/2.png";
 import galleryImg3 from "@/assets/gallery/3.png";
 import galleryImg4 from "@/assets/gallery/4.png";
 import galleryImg5 from "@/assets/gallery/5.png";
+// Demo Gallery Imports
+import demoVideo from "@/assets/gallery/demo/video.mp4";
+import ganu1 from "@/assets/gallery/demo/ganu1.jpg";
+import ganu2 from "@/assets/gallery/demo/ganu2.jpg";
+import ganu3 from "@/assets/gallery/demo/ganu3.jpg";
+import ganu4 from "@/assets/gallery/demo/ganu4.jpg";
+
 import { User, Wrench, Globe, Code, Sparkles, ArrowRight, Palette, Lock, Database, Github, Linkedin, Twitter, Youtube, Instagram, Mail } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { projectsData } from "@/data/projects";
 import { posts as blogPosts } from "@/data/blogPosts";
+
 
 const Hero = () => {
   const techStack = [
@@ -234,107 +242,6 @@ const Hero = () => {
           </div>
         </section>
 
-        {/* Photo Gallery Section - Scattered Collage */}
-        <section className="mb-8">
-          {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-heading flex items-center gap-3">
-            Images 📸
-          </h2>
-
-          <div className="relative py-8 overflow-hidden">
-            {/* Left Navigation Button */}
-            <button
-              onClick={() => {
-                const container = document.getElementById('photo-gallery');
-                if (container) container.scrollBy({ left: -300, behavior: 'smooth' });
-              }}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all"
-              aria-label="Scroll left"
-            >
-              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            {/* Photo Gallery Container */}
-            <div id="photo-gallery" className="flex items-center gap-4 overflow-x-auto px-12 pb-4 scroll-smooth">
-              {/* Photo 1 - Tilted left */}
-              <div className="relative group transform -rotate-6 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
-                <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
-                <img
-                  src={galleryImg1}
-                  alt="Gallery 1"
-                  className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
-                />
-              </div>
-
-              {/* Photo 2 - Tilted right */}
-              <div className="relative group transform rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
-                <img
-                  src={galleryImg2}
-                  alt="Gallery 2"
-                  className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
-                />
-              </div>
-
-              {/* Photo 3 - Center, larger */}
-              <div className="relative group transform rotate-1 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
-                <img
-                  src={galleryImg3}
-                  alt="Gallery 3"
-                  className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
-                />
-              </div>
-
-              {/* Photo 4 - Tilted left */}
-              <div className="relative group transform -rotate-3 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
-                <img
-                  src={galleryImg4}
-                  alt="Gallery 4"
-                  className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
-                />
-              </div>
-
-              {/* Photo 5 - Tilted right */}
-              <div className="relative group transform rotate-6 hover:rotate-0 transition-all duration-300 hover:scale-105 hover:z-10 flex-shrink-0">
-                <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
-                <img
-                  src={galleryImg5}
-                  alt="Gallery 5"
-                  className="relative w-48 h-56 object-cover rounded-2xl shadow-2xl border-4 border-white"
-                />
-              </div>
-            </div>
-
-            {/* Right Navigation Button */}
-            <button
-              onClick={() => {
-                const container = document.getElementById('photo-gallery');
-                if (container) container.scrollBy({ left: 300, behavior: 'smooth' });
-              }}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all"
-              aria-label="Scroll right"
-            >
-              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-
-          {/* View More Button */}
-          <div className="flex justify-center mt-6">
-            <a
-              href="/gallery"
-              className="custom-btn hover:scale-105"
-            >
-              View More Images 🖼️
-            </a>
-          </div>
-        </section>
-
         {/* Work Section - Redesigned */}
         <section className="mb-12 sm:mb-16">
           <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
@@ -457,6 +364,96 @@ const Hero = () => {
                   View All Work <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Photo Gallery Section - Modern Expandable */}
+        <section className="mb-12 sm:mb-16">
+          <div className="flex items-center justify-between mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold font-serif text-black dark:text-white flex items-center gap-3">
+              Images <span className="text-2xl sm:text-3xl md:text-4xl transform -rotate-12 inline-block">📸</span>
+            </h2>
+            <a href="/gallery" className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-bold text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+              View Gallery <ArrowRight size={16} />
+            </a>
+          </div>
+
+          <div className="relative w-full">
+            {/* Desktop: Expandable Flex Gallery */}
+            <div className="hidden md:flex gap-3 h-96 w-full">
+              {[
+                { type: 'video', src: demoVideo, label: 'Demo', desc: 'Watch this' },
+                { type: 'image', src: ganu1, label: 'Moment 1', desc: 'Life' },
+                { type: 'image', src: ganu2, label: 'Moment 2', desc: 'Style' },
+                { type: 'image', src: ganu3, label: 'Moment 3', desc: 'Vibe' },
+                { type: 'image', src: ganu4, label: 'Moment 4', desc: 'Chill' }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="group relative flex-1 hover:flex-[3] transition-all duration-700 ease-[cubic-bezier(0.2,0,0,1)] rounded-[2rem] overflow-hidden cursor-pointer shadow-sm hover:shadow-xl"
+                >
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors z-10" />
+
+                  {item.type === 'video' ? (
+                    <video
+                      src={item.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    />
+                  ) : (
+                    <img
+                      src={item.src}
+                      alt={item.label}
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    />
+                  )}
+
+                  <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 flex flex-col justify-end translate-y-4 group-hover:translate-y-0">
+                    <span className="text-white/80 text-xs font-bold uppercase tracking-wider mb-1">{item.desc}</span>
+                    <h3 className="text-white text-3xl font-bold font-serif italic">{item.label}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile: Scrollable Cards */}
+            <div className="md:hidden flex gap-4 overflow-x-auto pb-6 scroll-smooth px-1 no-scrollbar -mx-4 px-4">
+              {[
+                { type: 'video', src: demoVideo, label: 'Demo' },
+                { type: 'image', src: ganu1, label: 'Moment 1' },
+                { type: 'image', src: ganu2, label: 'Moment 2' },
+                { type: 'image', src: ganu3, label: 'Moment 3' },
+                { type: 'image', src: ganu4, label: 'Moment 4' }
+              ].map((item, i) => (
+                <div key={i} className="flex-shrink-0 w-72 h-96 rounded-[2rem] overflow-hidden relative shadow-lg transform rotate-0 odd:rotate-1 even:-rotate-1">
+                  {item.type === 'video' ? (
+                    <video
+                      src={item.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img src={item.src} className="w-full h-full object-cover" alt={item.label} />
+                  )}
+                  <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-white text-2xl font-bold font-serif italic">{item.label}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile View All Button */}
+            <div className="flex justify-center mt-4 md:hidden">
+              <a href="/gallery" className="custom-btn group w-full justify-center min-h-[44px] flex items-center">
+                View More Images <span className="ml-2">🖼️</span>
+              </a>
             </div>
           </div>
         </section>
