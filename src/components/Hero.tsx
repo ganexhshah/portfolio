@@ -15,9 +15,11 @@ import { User, Wrench, Globe, Code, Sparkles, ArrowRight, Palette, Lock, Databas
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projectsData } from "@/data/projects";
 import { posts as blogPosts } from "@/data/blogPosts";
 
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const techStack = [
@@ -33,24 +35,6 @@ const Hero = () => {
     { name: "PostgreSQL", category: "Relational DB", color: "#336791", icon: "P" },
     { name: "Prisma", category: "ORM for DB", color: "#2D3748", icon: "P" },
     { name: "Node.js", category: "Runtime", color: "#339933", icon: "N" },
-  ];
-
-  const workExperience = [
-    {
-      company: "Freelancing",
-      role: "Full Stack Developer",
-      link: "https://github.com/GaneshShah"
-    },
-    {
-      company: "Web Projects",
-      role: "MERN Stack Developer",
-      link: "#"
-    },
-    {
-      company: "Personal Projects",
-      role: "Full Stack Developer",
-      link: "#"
-    }
   ];
 
   const roles = [
@@ -134,6 +118,32 @@ const Hero = () => {
       );
     }
 
+    // SCROLL REVEAL ANIMATIONS
+    // Select all sections with class 'reveal-section'
+    const sections = gsap.utils.toArray('.reveal-section');
+
+    sections.forEach((section: any) => {
+      gsap.fromTo(section,
+        {
+          y: 50,
+          opacity: 0,
+          scale: 0.98
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%", // Triggers when top of section hits 85% of viewport height
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
   }, { scope: container });
 
   return (
@@ -189,12 +199,14 @@ const Hero = () => {
               <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed font-body hero-text-start">
                 A wizard of code, weaving stories through projects and applications. I'm passionate about web development and an enthusiast for technology, constantly crafting web experiences and building tools that make an impact.
               </p>
+
+
             </div>
           </div>
         </section>
 
         {/* Tech Stack Section - Infinite Scroll Animation */}
-        <section className="mb-8 overflow-hidden">
+        <section className="mb-8 overflow-hidden reveal-section">
           <div className="relative">
             {/* First Row - Scrolling Right */}
             <div className="flex gap-3 mb-3 animate-scroll-right">
@@ -243,7 +255,7 @@ const Hero = () => {
         </section>
 
         {/* Work Section - Redesigned */}
-        <section className="mb-12 sm:mb-16">
+        <section className="mb-12 sm:mb-16 reveal-section">
           <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
             {/* Left Side: Title & Description */}
             <div className="w-full md:w-1/3 md:sticky md:top-24">
@@ -373,7 +385,7 @@ const Hero = () => {
         </section>
 
         {/* Photo Gallery Section - Modern Expandable */}
-        <section className="mb-12 sm:mb-16">
+        <section className="mb-12 sm:mb-16 reveal-section">
           <div className="flex items-center justify-between mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold font-serif text-black dark:text-white flex items-center gap-3">
               Images <span className="text-2xl sm:text-3xl md:text-4xl transform -rotate-12 inline-block">📸</span>
@@ -463,7 +475,7 @@ const Hero = () => {
         </section>
 
         {/* Featured Projects Section */}
-        <section className="mb-12 sm:mb-16">
+        <section className="mb-12 sm:mb-16 reveal-section">
           <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
             {/* Left Side: Title & Description */}
             <div className="w-full md:w-1/3 md:sticky md:top-24">
@@ -517,7 +529,7 @@ const Hero = () => {
             </div>
           </div>
         </section>        {/* Featured Blogs Section */}
-        <section className="mb-12 sm:mb-16">
+        <section className="mb-12 sm:mb-16 reveal-section">
           <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
             {/* Left Side: Title & Description */}
             <div className="w-full md:w-1/3 md:sticky md:top-24">
@@ -567,7 +579,7 @@ const Hero = () => {
         </section>
 
         {/* Timeline Section - Redesigned to match Featured Blogs */}
-        <section className="mb-0">
+        <section className="mb-0 reveal-section">
           <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
             {/* Left Side: Title & Description */}
             <div className="w-full md:w-1/3 md:sticky md:top-24">

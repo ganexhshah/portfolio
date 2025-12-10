@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Search, Github, ExternalLink, Code2, ArrowRight, FolderGit2, Sparkles } from "lucide-react";
+import { Search, Github, ExternalLink, Code2, ArrowRight, FolderGit2, Sparkles, BookOpen, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +12,7 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const projects = Object.values(projectsData);
+  const featuredProject = projects[0]; // First project as featured
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
@@ -27,239 +28,181 @@ const Projects = () => {
     });
   }, [searchQuery, activeFilter]);
 
-  const stats = {
-    total: projects.length,
-    completed: projects.filter((p) => p.status === "completed").length,
-    inProgress: projects.filter((p) => p.status === "in-progress").length,
-  };
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    show: { y: 0, opacity: 1 }
-  };
+  const allCategories = ["all", "completed", "in-progress", "web", "mobile", "game"];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 pt-20">
-      <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-white dark:bg-gray-950 pt-24 pb-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-          <div>
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl font-bold font-heading mb-4 flex items-center gap-2"
-            >
-              <span className="text-gray-900 dark:text-white">All</span>
-              <div className="relative inline-block">
-                <span className="bg-gradient-to-r from-pink-500 to-purple-600 text-transparent bg-clip-text font-name inline-block">
-                  Projects
-                </span>
-                <div className="absolute -top-4 -right-6 text-yellow-500 animate-pulse">
-                  <Sparkles size={20} />
-                </div>
-              </div>
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl font-body"
-            >
-              Here are some of the projects I've worked on. Each project represents a unique challenge and learning experience.
-            </motion.p>
-          </div>
-          
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex gap-4"
-          >
-            <div className="bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 flex items-center gap-3">
-               <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
-                 <FolderGit2 size={20} />
-               </div>
-               <div>
-                 <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Total</p>
-                 <p className="text-xl font-bold text-gray-900 dark:text-white">{stats.total}</p>
-               </div>
-            </div>
-            <div className="bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 flex items-center gap-3">
-               <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400">
-                 <Sparkles size={20} />
-               </div>
-               <div>
-                 <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Completed</p>
-                 <p className="text-xl font-bold text-gray-900 dark:text-white">{stats.completed}</p>
-               </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Search and Filters */}
-        <div className="relative py-4 mb-8">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="relative w-full md:w-96 group">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors" size={20} />
-              <input
-                type="text"
-                placeholder="Search projects..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm font-medium"
-              />
-            </div>
-
-            <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto no-scrollbar">
-              {['all', 'completed', 'in-progress'].map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${
-                    activeFilter === filter
-                      ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-md transform scale-105'
-                      : 'bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  {filter.charAt(0).toUpperCase() + filter.slice(1).replace('-', ' ')}
-                </button>
-              ))}
-            </div>
-          </div>
-          
-          <div className="absolute -bottom-2 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent"></div>
-        </div>
-
-        {/* Results Info */}
-        <div className="mb-6 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 px-1">
-          <p>
-            Showing <span className="font-bold text-gray-900 dark:text-white">{filteredProjects.length}</span> projects
-            {searchQuery && <span> for "<span className="text-gray-900 dark:text-white">{searchQuery}</span>"</span>}
+        <div className="mb-12">
+          <h1 className="text-3xl md:text-5xl font-black font-serif italic text-gray-900 dark:text-white leading-tight mb-6">
+            Creative <span className="text-pink-600 dark:text-pink-400">Projects</span> & <span className="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 px-2 py-1 rounded-lg inline-block not-italic">Builds</span>
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl font-body leading-relaxed">
+            Showcasing my journey through code, design, and innovation. Each project represents a unique challenge and learning experience.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <motion.div 
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                layout
-                variants={item}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className="group flex flex-col h-full bg-white dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:shadow-2xl hover:shadow-primary/5 dark:hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2"
+        {/* Search & Categories */}
+        <div className="mb-16 space-y-6">
+          <div className="relative max-w-lg">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder="Search projects..."
+              className="w-full pl-12 pr-4 py-3 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500/20 focus:border-pink-500 transition-all"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {allCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`px-4 py-2 rounded-full border text-sm font-medium transition-colors ${
+                  activeFilter === cat
+                    ? 'bg-pink-500 text-white border-pink-500'
+                    : 'border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                }`}
               >
-                <Link to={`/projects/${project.id}`} className="block h-full cursor-pointer">
-                  {/* Visual Header */}
-                  <div className={`relative h-48 bg-gradient-to-br ${project.gradient} p-6 overflow-hidden`}>
-                    <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                    
-                    <div className="absolute top-4 right-4 z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-full hover:bg-white/20 transition-colors">
-                          <ArrowRight className="text-white transform -rotate-45" size={18} />
-                      </div>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                      <div>
-                          <div className="text-white/80 text-xs font-mono mb-1">{project.year}</div>
-                          <h3 className="text-white font-bold text-2xl tracking-tight leading-none group-hover:scale-105 transition-transform origin-left">{project.title}</h3>
-                      </div>
-                      <div className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/10">
-                        {project.category?.toUpperCase() || 'DEV'}
-                      </div>
-                    </div>
-                    
-                    {/* Decorative Icon Background */}
-                    <Code2 className="absolute -right-6 -bottom-6 text-white/5 rotate-12" size={160} />
-                  </div>
-
-                  <div className="flex-1 p-6 flex flex-col h-[calc(100%-12rem)]">
-                    {/* Status & Team */}
-                    <div className="flex items-center gap-2 mb-4">
-                      {project.status === 'completed' ? (
-                        <Badge variant="secondary" className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-200 border-transparent">
-                          Completed
-                        </Badge>
-                      ) : (
-                        <Badge variant="secondary" className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 hover:bg-blue-200 border-transparent">
-                          In Progress
-                        </Badge>
-                      )}
-                      {project.award && (
-                        <Badge variant="outline" className="border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-900 dark:bg-amber-900/10 dark:text-amber-400">
-                          🏆 {project.award}
-                        </Badge>
-                      )}
-                    </div>
-
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    <div className="mt-auto">
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.tags.map((tag, i) => (
-                          <span 
-                            key={tag} 
-                            className="px-2 py-1 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs rounded-md border border-gray-100 dark:border-gray-700"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-gray-800">
-                        {project.github && (
-                          <div
-                            role="button"
-                            className="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors group/link cursor-pointer"
-                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.github, '_blank'); }}
-                          >
-                            <Github size={16} />
-                            <span className="group-hover/link:underline">Source Code</span>
-                          </div>
-                        )}
-                        {project.demo && (
-                          <div
-                            role="button"
-                            className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors ml-auto group/link cursor-pointer"
-                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.demo, '_blank'); }}
-                          >
-                            <span>Live Demo</span>
-                            <ExternalLink size={16} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+                {cat.charAt(0).toUpperCase() + cat.slice(1).replace('-', ' ')}
+              </button>
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </div>
+        </div>
+
+        {/* Featured Project */}
+        {featuredProject && (
+          <div className="mb-16">
+            <div className="flex items-center gap-2 mb-6">
+              <Sparkles className="text-yellow-500" size={20} />
+              <h2 className="text-xl font-bold font-heading uppercase tracking-wider text-gray-500 dark:text-gray-400">Featured Project</h2>
+            </div>
+
+            <div className="group relative rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div className={`aspect-[21/9] w-full overflow-hidden bg-gradient-to-br ${featuredProject.gradient} relative`}>
+                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <Code2 className="absolute -right-6 -bottom-6 text-white/5 rotate-12" size={160} />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent"></div>
+              </div>
+
+              <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full">
+                <div className="flex flex-wrap items-center gap-3 mb-4 text-white/80 text-sm">
+                  <Badge className="bg-pink-500 hover:bg-pink-600 border-none text-white">{featuredProject.category || 'Development'}</Badge>
+                  <span>{featuredProject.year}</span>
+                  <span>•</span>
+                  <span className="capitalize">{featuredProject.status}</span>
+                </div>
+
+                <h2 className="text-2xl md:text-4xl font-bold font-serif text-white mb-4 group-hover:text-pink-200 transition-colors">
+                  {featuredProject.title}
+                </h2>
+
+                <p className="text-white/80 text-lg mb-6 line-clamp-2 max-w-3xl font-body">
+                  {featuredProject.description}
+                </p>
+
+                <Link
+                  to={`/projects/${featuredProject.id}`}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white font-semibold hover:bg-white hover:text-gray-900 transition-all group-hover:pl-8"
+                >
+                  View Project <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Recent Projects Grid */}
+        <div className="mb-16">
+          <div className="flex items-center gap-2 mb-8">
+            <div className="p-2 bg-pink-100 dark:bg-pink-900/30 rounded-lg text-pink-600 dark:text-pink-400">
+              <BookOpen size={20} />
+            </div>
+            <h2 className="text-3xl font-bold font-heading text-gray-900 dark:text-white">All Projects</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {filteredProjects.slice(1).map((project, index) => (
+              <div key={project.id} className="group flex flex-col h-full bg-white dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className={`aspect-video relative overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                  <Code2 className="absolute -right-6 -bottom-6 text-white/5 rotate-12" size={120} />
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-white/90 dark:bg-gray-900/90 backdrop-blur text-gray-900 dark:text-white hover:bg-white dark:hover:bg-gray-900 border-none shadow-sm">
+                      {project.category || 'Development'}
+                    </Badge>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="text-white/80 text-xs font-mono mb-1">{project.year}</div>
+                    <h3 className="text-white font-bold text-xl tracking-tight leading-none">{project.title}</h3>
+                  </div>
+                </div>
+
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-3 font-medium uppercase tracking-wide">
+                    <span className="capitalize">{project.status}</span>
+                    <span>•</span>
+                    <span>{project.tags.length} Technologies</span>
+                  </div>
+
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-body mb-6 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span 
+                        key={tag} 
+                        className="px-2 py-1 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs rounded-md border border-gray-100 dark:border-gray-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {project.tags.length > 3 && (
+                      <span className="px-2 py-1 bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-xs rounded-md border border-gray-100 dark:border-gray-700">
+                        +{project.tags.length - 3} more
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                    <Link
+                      to={`/projects/${project.id}`}
+                      className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2 group-hover:gap-3 transition-all"
+                    >
+                      View Project <ArrowRight size={16} className="text-pink-500" />
+                    </Link>
+                    <div className="flex items-center gap-2">
+                      {(project as any).github && (
+                        <button
+                          onClick={(e) => { e.preventDefault(); window.open((project as any).github, '_blank'); }}
+                          className="p-2 bg-gray-50 dark:bg-gray-800 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                        >
+                          <Github size={16} />
+                        </button>
+                      )}
+                      {(project as any).demo && (
+                        <button
+                          onClick={(e) => { e.preventDefault(); window.open((project as any).demo, '_blank'); }}
+                          className="p-2 bg-gray-50 dark:bg-gray-800 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                        >
+                          <ExternalLink size={16} />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {filteredProjects.length === 0 && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-20"
-          >
+          <div className="text-center py-20">
             <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
               <Search className="text-gray-400" size={24} />
             </div>
@@ -274,8 +217,43 @@ const Projects = () => {
             >
               Clear filters
             </Button>
-          </motion.div>
+          </div>
         )}
+
+        {/* Newsletter / CTA */}
+        <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 rounded-[2.5rem] p-8 md:p-12 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-10">
+            <Sparkles size={120} />
+          </div>
+
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <Badge className="mb-4 bg-white dark:bg-gray-800 text-pink-600 dark:text-pink-400 border-pink-100 dark:border-pink-900 hover:bg-white">Collaboration</Badge>
+            <h2 className="text-3xl md:text-4xl font-black font-heading text-gray-900 dark:text-white mb-4">
+              Let's build something amazing! 🚀
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-8 font-body">
+              Have an exciting project in mind? I'm always open to collaborating on innovative ideas and challenging builds.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <Link
+                to="/contact"
+                className="flex-1 px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all text-center"
+              >
+                Get In Touch
+              </Link>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-bold rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-all text-center"
+              >
+                View GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

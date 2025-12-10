@@ -32,11 +32,21 @@ const HomePage = () => (
 
 
 
+import Preloader from "@/components/Preloader";
+
 const App = () => {
+  const [isLoading, setIsLoading] = React.useState(true);
   return (
     <HelmetProvider>
       <ErrorBoundary>
         <BrowserRouter>
+          {/* Preloader Logic */}
+          {isLoading && (
+            <Preloader
+              onComplete={() => setIsLoading(false)}
+            />
+          )}
+
           <ReactLenis root>
             <CustomCursor />
             <main className="relative">
