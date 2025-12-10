@@ -257,9 +257,12 @@ const Hero = () => {
                 For me, great development is about delivering fast without compromising on a solid, lasting foundation.
               </p>
 
-              <a href="/work" className="custom-btn group hidden md:inline-flex min-h-[44px]">
-                View All Work <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-              </a>
+              <div className="hidden md:block">
+                <a href="/work" className="custom-btn group min-h-[44px]">
+                  View All Work <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                </a>
+              </div>
+
             </div>
 
             {/* Right Side: Work Cards */}
@@ -358,12 +361,13 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Mobile View All Button */}
-              <div className="md:hidden mt-4 sm:mt-6">
-                <a href="/work" className="custom-btn group w-full justify-center min-h-[44px] flex items-center">
-                  View All Work <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-                </a>
-              </div>
+            </div>
+
+            {/* View All Button */}
+            <div className="mt-4 sm:mt-6 md:hidden">
+              <a href="/work" className="custom-btn group w-full justify-center min-h-[44px] flex items-center">
+                View All Work <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+              </a>
             </div>
           </div>
         </section>
@@ -423,7 +427,7 @@ const Hero = () => {
             {/* Mobile: Scrollable Cards */}
             <div className="md:hidden flex gap-4 overflow-x-auto pb-6 scroll-smooth px-1 no-scrollbar -mx-4 px-4">
               {[
-                { type: 'video', src: demoVideo, label: 'Demo' },
+                { type: 'video', src: demoVideo, label: 'Wauuu' },
                 { type: 'image', src: ganu1, label: 'Moment 1' },
                 { type: 'image', src: ganu2, label: 'Moment 2' },
                 { type: 'image', src: ganu3, label: 'Moment 3' },
@@ -471,9 +475,11 @@ const Hero = () => {
               <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed sm:leading-relaxed font-body mb-6 sm:mb-8 px-1">
                 I love building things that solve real problems. Here are a few open-source projects and platforms I've crafted using the latest web technologies.
               </p>
-              <a href="/projects" className="custom-btn group hidden md:inline-flex min-h-[44px]">
-                View All Projects <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-              </a>
+              <div className="hidden md:block">
+                <a href="/projects" className="custom-btn group min-h-[44px]">
+                  View All Projects <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                </a>
+              </div>
             </div>
 
             {/* Right Side: Project Content */}
@@ -523,9 +529,11 @@ const Hero = () => {
               <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed sm:leading-relaxed font-body mb-6 sm:mb-8 px-1">
                 Thoughts, tutorials, and insights about web development, design, and my learning journey.
               </p>
-              <a href="/blog" className="custom-btn group hidden md:inline-flex min-h-[44px]">
-                Read All Articles <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-              </a>
+              <div className="hidden md:block">
+                <a href="/blog" className="custom-btn group min-h-[44px]">
+                  Read All Articles <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                </a>
+              </div>
             </div>
 
             {/* Right Side: Blog Content */}
