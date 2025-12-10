@@ -566,50 +566,59 @@ const Hero = () => {
           </div>
         </section>
 
-        {/* Timeline Section - Modern */}
-        <section className="mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 font-heading flex items-center gap-3">
-            Timeline <span className="text-2xl">⏳</span>
-          </h2>
-          <div className="space-y-4">
-            {/* Currently */}
-            <div className="group relative bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/10 dark:to-purple-900/10 rounded-2xl p-6 border border-pink-200 dark:border-pink-900/30 hover:shadow-lg transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center text-white font-bold shadow-lg">
-                  <span className="text-lg">✨</span>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-2">
-                    <h3 className="font-bold text-lg text-gray-900 dark:text-white">Currently</h3>
-                    <span className="px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold rounded-full">
-                      Active
-                    </span>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">
-                    Web Developer & Student
-                  </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Building amazing web applications and learning new technologies every day.
-                  </p>
-                </div>
+        {/* Timeline Section - Redesigned to match Featured Blogs */}
+        <section className="mb-0">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
+            {/* Left Side: Title & Description */}
+            <div className="w-full md:w-1/3 md:sticky md:top-24">
+              <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-serif text-black dark:text-white flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap">
+                  <span className="break-words">Timeline</span> <span className="transform rotate-12 inline-block text-xl sm:text-2xl flex-shrink-0">⏳</span>
+                </h2>
               </div>
+              <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed sm:leading-relaxed font-body mb-6 sm:mb-8 px-1">
+                Building amazing web applications and learning new technologies every day.
+              </p>
             </div>
 
-            {/* 2024 */}
-            <div className="group relative bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10 rounded-2xl p-6 border border-blue-200 dark:border-blue-900/30 hover:shadow-lg transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold shadow-lg">
-                  <span className="text-sm">2024</span>
+            {/* Right Side: Timeline Content */}
+            <div className="w-full md:w-2/3 flex flex-col gap-4 sm:gap-6">
+
+              {/* Currently */}
+              <div className="group border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-colors active:scale-[0.98] sm:active:scale-100">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xl">✨</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Currently</span>
+                  <span className="px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold uppercase tracking-wide rounded-full">
+                    Active
+                  </span>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2">
-                    Started Full Stack Development
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white transition-colors cursor-pointer flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap leading-snug sm:leading-normal">
+                    <span className="break-words">Web Developer & Student</span> <ArrowRight className="hidden sm:inline opacity-0 md:group-hover:opacity-100 transition-opacity transform -translate-x-2 md:group-hover:translate-x-0 flex-shrink-0" size={16} />
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Mastered MERN stack and modern web technologies.
-                  </p>
                 </div>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-xs sm:text-sm">
+                  Building amazing web applications and learning new technologies every day.
+                </p>
               </div>
+
+              {/* 2024 */}
+              <div className="group border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50 p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-colors active:scale-[0.98] sm:active:scale-100">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xl">🚀</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">2024</span>
+                </div>
+                <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white transition-colors cursor-pointer flex flex-wrap items-center gap-2 sm:gap-3 break-words word-wrap leading-snug sm:leading-normal">
+                    <span className="break-words">Started Full Stack Development</span> <ArrowRight className="hidden sm:inline opacity-0 md:group-hover:opacity-100 transition-opacity transform -translate-x-2 md:group-hover:translate-x-0 flex-shrink-0" size={16} />
+                  </h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-xs sm:text-sm">
+                  Mastered MERN stack and modern web technologies.
+                </p>
+              </div>
+
             </div>
           </div>
         </section>

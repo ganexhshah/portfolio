@@ -14,14 +14,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-900 mt-16">
+    <footer className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-900 mt-0">
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Footer Links Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 mb-6">
           {footerLinks.map((link) => {
             const Icon = link.icon;
             const LinkComponent = link.external ? 'a' : Link;
-            const linkProps = link.external 
+            const linkProps = link.external
               ? { href: link.href, target: "_blank", rel: "noopener noreferrer" }
               : { to: link.href };
 

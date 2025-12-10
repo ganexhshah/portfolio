@@ -16,6 +16,7 @@ import CustomCursor from "./components/ui/Cursor";
 import ReactLenis from "lenis/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import Work from "@/components/Work";
 
 const Footer = React.lazy(() => import("./components/Footer"));
 
@@ -46,6 +47,7 @@ const App = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/tools" element={<Tools />} />
                 <Route path="/connections" element={<Connections />} />
+                <Route path="/work" element={<Work />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/:projectId" element={<ProjectDetail />} />
                 <Route path="/blog" element={<Blog />} />
