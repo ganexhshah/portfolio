@@ -37,19 +37,19 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
 
     // Pre-calculated diverse positions to ensure spread
     const mediaPositions = useMemo(() => [
-        { top: '10%', left: '10%', width: '12vw', rotation: -10 },
-        { top: '15%', left: '80%', width: '15vw', rotation: 12 },
-        { top: '60%', left: '5%', width: '14vw', rotation: 5 },
-        { top: '70%', left: '75%', width: '16vw', rotation: -8 },
-        { top: '30%', left: '20%', width: '10vw', rotation: -15 },
-        { top: '40%', left: '85%', width: '13vw', rotation: 10 },
-        { top: '80%', left: '30%', width: '11vw', rotation: -5 },
-        { top: '5%', left: '40%', width: '14vw', rotation: 8 },
-        { top: '50%', left: '10%', width: '12vw', rotation: -12 },
-        { top: '20%', left: '60%', width: '15vw', rotation: 15 },
-        { top: '85%', left: '60%', width: '13vw', rotation: -6 },
-        { top: '35%', left: '5%', width: '10vw', rotation: 7 },
-        { top: '45%', left: '50%', width: '16vw', rotation: -9 },
+        { top: '10%', left: '10%', width: 'clamp(130px, 12vw, 300px)', rotation: -10 },
+        { top: '15%', left: '80%', width: 'clamp(160px, 15vw, 360px)', rotation: 12 },
+        { top: '60%', left: '5%', width: 'clamp(150px, 14vw, 340px)', rotation: 5 },
+        { top: '70%', left: '75%', width: 'clamp(170px, 16vw, 380px)', rotation: -8 },
+        { top: '30%', left: '20%', width: 'clamp(120px, 10vw, 250px)', rotation: -15 },
+        { top: '40%', left: '85%', width: 'clamp(140px, 13vw, 320px)', rotation: 10 },
+        { top: '80%', left: '30%', width: 'clamp(120px, 11vw, 280px)', rotation: -5 },
+        { top: '5%', left: '40%', width: 'clamp(150px, 14vw, 350px)', rotation: 8 },
+        { top: '50%', left: '10%', width: 'clamp(130px, 12vw, 300px)', rotation: -12 },
+        { top: '20%', left: '60%', width: 'clamp(160px, 15vw, 360px)', rotation: 15 },
+        { top: '85%', left: '60%', width: 'clamp(140px, 13vw, 320px)', rotation: -6 },
+        { top: '35%', left: '5%', width: 'clamp(120px, 10vw, 250px)', rotation: 7 },
+        { top: '45%', left: '50%', width: 'clamp(170px, 16vw, 400px)', rotation: -9 },
     ], []);
 
     const mediaItems = useMemo(() => [
@@ -211,8 +211,8 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
                 {/* Kinetic Background Text Layer */}
                 <div ref={kineticTextRef} className="absolute inset-0 flex flex-col items-center justify-center opacity-30 select-none pointer-events-none transform rotate-[-5deg] scale-150 z-0">
                     {[...Array(7)].map((_, i) => (
-                        <div key={i} className={`type-line ${i % 2 === 0 ? 'odd' : 'even'} text-[12vw] font-black text-transparent stroke-white/20 whitespace-nowrap`} style={{ WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}>
-                            GANESH GANESH GANESH GANESH
+                        <div key={i} className={`type-line ${i % 2 === 0 ? 'odd' : 'even'} text-[10vw] font-black text-transparent stroke-white/20 whitespace-nowrap`} style={{ WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}>
+                            GANESH SHAH GANESH SHAH
                         </div>
                     ))}
                 </div>
@@ -252,15 +252,27 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
                 </div>
 
                 {/* Main Reveal Text */}
-                <div ref={textRef} className="relative z-20 flex gap-2 sm:gap-4 mix-blend-normal pointer-events-none">
-                    {["G", "A", "N", "E", "S", "H"].map((char, index) => (
-                        <span
-                            key={index}
-                            className="char text-7xl sm:text-9xl md:text-[12rem] font-black text-white inline-block font-serif tracking-tighter drop-shadow-2xl"
-                        >
-                            {char}
-                        </span>
-                    ))}
+                <div ref={textRef} className="relative z-20 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 mix-blend-normal pointer-events-none">
+                    <div className="flex overflow-hidden">
+                        {["G", "A", "N", "E", "S", "H"].map((char, index) => (
+                            <span
+                                key={`first-${index}`}
+                                className="char text-[15vw] md:text-[8rem] lg:text-[10rem] font-black bg-gradient-to-b from-white via-gray-200 to-gray-400 bg-clip-text text-transparent inline-block font-sans tracking-tighter drop-shadow-2xl"
+                            >
+                                {char}
+                            </span>
+                        ))}
+                    </div>
+                    <div className="flex overflow-hidden">
+                        {["S", "H", "A", "H"].map((char, index) => (
+                            <span
+                                key={`last-${index}`}
+                                className="char text-[15vw] md:text-[8rem] lg:text-[10rem] font-black bg-gradient-to-b from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent inline-block font-sans tracking-tighter drop-shadow-2xl"
+                            >
+                                {char}
+                            </span>
+                        ))}
+                    </div>
                 </div>
 
                 {/* SKIP BUTTON */}
